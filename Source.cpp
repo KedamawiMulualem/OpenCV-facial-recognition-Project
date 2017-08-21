@@ -1,18 +1,21 @@
 //Name:Kedamawi Mulualem
-//Date:5/31/2017
+//Date:7/1/2017
 //UDC Robotics lab 105A
-//Backward camera project
+//opencv facial recognition
+
 #include<opencv2/core/core.hpp>
 #include<opencv2/highgui/highgui.hpp>
 #include<opencv2/imgproc/imgproc.hpp>
-#include <sstream>
-#include <string>
-#include <iostream>
 #include <opencv\highgui.h>
 #include <opencv\cv.h>
 #include "opencv2/objdetect/objdetect.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
+
+#include <sstream>
+#include <string>
+#include <iostream>
+
 #include <fstream>
 #include <stdio.h>
 
@@ -28,11 +31,13 @@ Mat detect_crop_save(Mat frame);
 void crop_face(Mat image, Point start, Point finish, int i);
 void is_face(Mat &img, Point &face_high, Point &face_low, Point &eyes, int i);
 void flat_image(Mat img);
+
 /** Global variables */
 const int FRAME_WIDTH = 640;;
 const int FRAME_HEIGHT = 480;
 int ans = 0;
 int count_faces = 0;
+
 //clasifier xml files
 String face_cascade_name = "haarcascade_frontalface_alt.xml";
 String eyes_cascade_name = "haarcascade_eye.xml";
@@ -79,6 +84,7 @@ int main(int argc, const char** argv)
 	}
 	return 0;
 }
+
 
 /** @function detectAndDisplay */
 Mat detect_crop_save(Mat frame)
@@ -152,6 +158,7 @@ Mat detect_crop_save(Mat frame)
 	return frame;
 }
 
+
 //a function that check if the detected face is actual human face
 void is_face(Mat &img, Point &face_high, Point &face_low, Point &eyes, int i)
 {	
@@ -165,6 +172,8 @@ void is_face(Mat &img, Point &face_high, Point &face_low, Point &eyes, int i)
 
 
 }
+
+
 void crop_face(Mat image, Point left_corner_face_crop, Point right_corner_face_crop, int i) {
 	cout << i << endl;
 	//variabele to save the croped face
